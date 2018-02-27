@@ -15,14 +15,14 @@ public class MathService {
         this.init = init;
     }
 
-    public MathService sum(final int addend) {
+    public int sum(final int addend) {
         this.init = plus.run(this.init, addend);
-        return this;
+        return this.init;
     }
 
-    public MathService subtract(final int subtrahend) {
+    public int subtract(final int subtrahend) {
         this.init -= minus.run(this.init, subtrahend);
-        return this;
+        return this.init;
     }
 
     public int result() {

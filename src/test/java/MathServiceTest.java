@@ -39,6 +39,14 @@ public class MathServiceTest {
         // Verify
         verify(mathService, times(1)).sum(1);
         verify(mathService, times(2)).sum(2);
+        verify(mathService, never()).sum(0);
+
+        // 最低1回呼ばれていること
+        verify(mathService, atLeastOnce()).sum(1);
+        // 最低2回呼ばれていること
+        verify(mathService, atLeast(2)).sum(2);
+        // 最大3回までしか呼ばれないこと
+        verify(mathService, atMost(3)).sum(2);
     }
 
     @Test
@@ -123,4 +131,7 @@ public class MathServiceTest {
         assertThat(mathService.sum(2), is(999));
         assertThat(mathService.sum(3), is(999));
     }
+
+//    @Test
+//    public void
 }
